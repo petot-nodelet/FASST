@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Paksa HTTPS di browser (berlaku setelah kunjungan pertama)
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+    # Batasi semua sumber daya hanya boleh dari domain sendiri,
+    # kecuali font Google yang memang dipakai situs ini
+    Content-Security-Policy = "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'; upgrade-insecure-requests"
+
+    # Cegah halaman ini ditaruh dalam iframe situs lain (anti clickjacking)
+    X-Frame-Options = "DENY"
+
+    # Cegah browser "menebak" tipe file (anti MIME-sniffing)
+    X-Content-Type-Options = "nosniff"
+
+    # Kirim referrer seminimal mungkin ke situs lain
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Matikan akses ke fitur browser yang tidak dipakai situs ini
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+    # Situs statis tanpa script, jadi XSS-Protection legacy juga diaktifkan untuk browser lama
+    X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "/Asset/*"
+  [headers.values]
+    # Gambar jarang berubah — boleh di-cache lama, aman untuk performa
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sertifikat/*"
+  [headers.values]
+    # Cegah Google/mesin pencari lain mengindeks halaman sertifikat
+    X-Robots-Tag = "noindex, nofollow"

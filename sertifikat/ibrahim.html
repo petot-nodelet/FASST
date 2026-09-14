@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FASST — Sertifikat Pelatihan Teknik Sablon & Tekstil</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink: #0c0c0d;
+    --ink-soft: #1a1917;
+    --gold: #d9a441;
+    --gold-bright: #f0c25e;
+    --paper: #f3ede0;
+    --paper-line: #d8cdb2;
+    --paper-shadow: #b8ab88;
+    --text-on-ink: #f3ede0;
+    --text-muted: #a89b7c;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--ink);
+    color: var(--text-on-ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection{ background: var(--gold); color: var(--ink); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 6vh 6vw;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(217,164,65,0.10), transparent 55%),
+      var(--ink);
+    overflow:hidden;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(217,164,65,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(217,164,65,0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(ellipse at 50% 40%, black 10%, transparent 65%);
+    pointer-events:none;
+  }
+
+  .mark{
+    width: min(240px, 60vw);
+    height: auto;
+    margin-bottom: 28px;
+    position:relative;
+    z-index:1;
+    display:block;
+  }
+
+  .eyebrow{
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    color: var(--text-muted);
+    margin-bottom: 22px;
+    position:relative; z-index:1;
+    font-weight:500;
+  }
+
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size: clamp(3.6rem, 15vw, 8.5rem);
+    letter-spacing: -0.01em;
+    line-height:0.9;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 60%, #8a662a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position:relative; z-index:1;
+  }
+
+  .brand-sub{
+    margin-top: 18px;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: var(--text-on-ink);
+    position:relative; z-index:1;
+  }
+  .brand-sub .place{ color: var(--gold); }
+
+  .hero-tag{
+    margin-top: 40px;
+    max-width: 480px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    position:relative; z-index:1;
+  }
+
+  .scroll-cue{
+    margin-top: 56px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    position:relative; z-index:1;
+  }
+  .scroll-cue .line{
+    width:1px; height:34px;
+    background: linear-gradient(var(--gold), transparent);
+  }
+
+  /* ---------- CERTIFICATE SECTION ---------- */
+  .cert-section{
+    background: var(--ink);
+    padding: 10vh 5vw 12vh;
+    display:flex;
+    justify-content:center;
+  }
+
+  .certificate{
+    width: min(560px, 100%);
+    position:relative;
+  }
+
+  .certificate img{
+    width: 100%;
+    display:block;
+    box-shadow: 0 40px 90px -30px rgba(0,0,0,0.75);
+  }
+
+  .cert-caption{
+    text-align:center;
+    margin-top: 26px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .cert-download{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top: 18px;
+    padding: 12px 26px;
+    border: 1px solid var(--gold);
+    color: var(--gold-bright);
+    text-decoration:none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .cert-download:hover{
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .cert-actions{ text-align:center; }
+
+  /* ---------- DETAILS ---------- */
+  .details-section{
+    background: var(--ink-soft);
+    padding: 8vh 5vw 10vh;
+    display:flex;
+    justify-content:center;
+  }
+
+  .details-card{
+    width: min(560px, 100%);
+  }
+
+  .details-heading{
+    font-family:'Fraunces', serif;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+  .details-heading .accent{ color: var(--gold); }
+  .details-caption{
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 30px;
+  }
+
+  .details-table{
+    border-top: 1px solid rgba(217,164,65,0.25);
+  }
+  .details-row{
+    display:flex;
+    justify-content:space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(217,164,65,0.25);
+  }
+  .details-row .label{
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    flex-shrink:0;
+    width: 40%;
+  }
+  .details-row .value{
+    font-size: 0.98rem;
+    text-align:right;
+    font-weight:500;
+  }
+
+  .status{
+    margin-top: 32px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding: 10px 18px;
+    border: 1px solid rgba(217,164,65,0.4);
+    font-size: 0.85rem;
+    color: var(--gold-bright);
+  }
+  .status .dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 8px var(--gold-bright);
+  }
+
+  footer{
+    text-align:center;
+    padding: 40px 6vw 56px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    background: var(--ink-soft);
+  }
+  footer .foot-brand{ color: var(--gold); font-weight:600; }
+
+  @media (max-width: 520px){
+    .cert-sign-row{ flex-direction:column; gap: 34px; }
+    .details-row{ flex-direction:column; gap:6px; }
+    .details-row .value{ text-align:left; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{
+      animation: fadeUp 0.9s ease both;
+    }
+    @keyframes fadeUp{
+      from{ opacity:0; transform: translateY(16px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <img class="mark reveal" src="../Asset/logo.png" alt="Logo FASST">
+    <p class="eyebrow reveal" style="animation-delay:.05s">SEKOLAH KETERAMPILAN SABLON &amp; TEKSTIL</p>
+    <p class="hero-tag reveal" style="animation-delay:.2s">Sertifikat kelulusan resmi untuk peserta yang telah menyelesaikan Pelatihan Teknik Sablon &amp; Tekstil di FASST.</p>
+    <div class="scroll-cue reveal" style="animation-delay:.3s">
+      <span>LIHAT SERTIFIKAT</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <section class="cert-section">
+    <div class="certificate reveal">
+      <img src="../Asset/ibrahim.png" alt="Sertifikat Muhammad Ibrahimmovic - Pelatihan Teknik Sablon dan Tekstil FASST">
+      <p class="cert-caption">Sertifikat Nomor: 64/fasst-786/IX/2026</p>
+    </div>
+  </section>
+
+  <section class="details-section">
+    <div class="details-card">
+      <h3 class="details-heading">Data <span class="accent">Peserta</span></h3>
+      <p class="details-caption">Rincian yang tercatat pada sertifikat ini.</p>
+
+      <div class="details-table">
+        <div class="details-row">
+          <span class="label">NAMA</span>
+          <span class="value">Muhammad Ibrahim Movic</span>
+        </div>
+        <div class="details-row">
+          <span class="label">ALAMAT</span>
+          <span class="value">Tegal Mulya, Kec. Krangkeng, Kab. Indramayu</span>
+        </div>
+        <div class="details-row">
+          <span class="label">PERIODE PELATIHAN</span>
+          <span class="value">5–9 September 2026</span>
+        </div>
+        <div class="details-row">
+          <span class="label">MASA BERLAKU</span>
+          <span class="value">9 September 2029</span>
+        </div>
+      </div>
+
+      <div class="status">
+        <span class="dot"></span>
+        <span>Sertifikat berlaku hingga 9 September 2029</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><span class="foot-brand">FASST</span> — Fortuna Academy of Screen Printing &amp; Textile, Slawi, Tegal</p>
+  </footer>
+
+</body>
+</html>
